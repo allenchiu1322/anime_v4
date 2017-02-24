@@ -24,10 +24,10 @@ class ApiController extends Controller
         /*
         $param = [
             'action' => 'set',
-            'type' => 'title',
+            'type' => 'seiyuu',
             'data' => [
-                'title' => '境界的彼方',
-                'title_jp' => '境界の彼方',
+                'seiyuu' => '茅原實里2',
+                'seiyuu_jp' => '茅原実里',
             ]
         ];
         $param = [
@@ -40,9 +40,9 @@ class ApiController extends Controller
          */
         $param = [
             'action' => 'delete',
-            'type' => 'title',
+            'type' => 'seiyuu',
             'data' => [
-                'id' => 13,
+                'id' => 2,
             ]
         ];
         return json_encode($param);

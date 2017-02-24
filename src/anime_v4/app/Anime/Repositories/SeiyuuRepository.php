@@ -2,22 +2,22 @@
 namespace App\Anime\Repositories;
 
 use Illuminate\Database\Eloquent\Collection;
-use App\Title;
+use App\Seiyuu;
 
-class TitleRepository {
+class SeiyuuRepository {
 
     public function set_data($data) {
 
-        $title = Title::firstOrNew(['title' => $data->title ]);
-        $title->title_jp = $data->title_jp;
+        $seiyuu = Seiyuu::firstOrNew(['seiyuu' => $data->seiyuu ]);
+        $seiyuu->seiyuu_jp = $data->seiyuu_jp;
         if (isset($data->comment)) {
-            $title->comment = $data->comment;
+            $seiyuu->comment = $data->comment;
         } else {
-            $title->comment = '';
+            $seiyuu->comment = '';
         }
-        $title->save();
+        $seiyuu->save();
 
-        $id = $title->id;
+        $id = $seiyuu->id;
 
     }
 
@@ -35,7 +35,7 @@ class TitleRepository {
             $limit = 10;
         }
 
-        if (isset($data->orderby) && in_array($data->limit, array('title'))) {
+        if (isset($data->orderby) && in_array($data->limit, array('seiyuu'))) {
             $orderby = $data->orderby;
         } else {
             $orderby = 'id';
@@ -43,11 +43,11 @@ class TitleRepository {
 
         //取資料
         if (isset($data->id) && is_numeric($data->id)) {
-            $ret = Title::where('id', '=', $data->id)->get();
-        } else if (isset($data->title) && is_string($data->title) && ($data->title <> '')) {
-            $ret = Title::where('title', 'LIKE', '%' . $data->title . '%')->offset($offset)->limit($limit)->orderby($orderby)->get();
+            $ret = Seiyuu::where('id', '=', $data->id)->get();
+        } else if (isset($data->seiyuu) && is_string($data->seiyuu) && ($data->seiyuu <> '')) {
+            $ret = Seiyuu::where('seiyuu', 'LIKE', '%' . $data->seiyuu . '%')->offset($offset)->limit($limit)->orderby($orderby)->get();
         } else {
-            $ret = Title::offset($offset)->limit($limit)->orderby($orderby)->get();
+            $ret = Seiyuu::offset($offset)->limit($limit)->orderby($orderby)->get();
         }
 
         return $ret;
@@ -55,7 +55,7 @@ class TitleRepository {
     }
 
     public function delete_data($data) {
-        $ret = Title::where('id', '=', $data->id)->delete();
+        $ret = Seiyuu::where('id', '=', $data->id)->delete();
         return $ret;
     }
 
