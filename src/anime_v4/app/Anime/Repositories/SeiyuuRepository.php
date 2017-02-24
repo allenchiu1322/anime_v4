@@ -19,6 +19,8 @@ class SeiyuuRepository {
 
         $id = $seiyuu->id;
 
+        return $id;
+
     }
 
     public function get_data($data) {

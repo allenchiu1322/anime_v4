@@ -19,6 +19,8 @@ class TitleRepository {
 
         $id = $title->id;
 
+        return $id;
+
     }
 
     public function get_data($data) {

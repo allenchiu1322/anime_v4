@@ -37,12 +37,22 @@ class ApiController extends Controller
                 'title' => '女',
             ]
         ];
-         */
         $param = [
             'action' => 'delete',
             'type' => 'seiyuu',
             'data' => [
                 'id' => 2,
+            ]
+        ];
+         */
+        $param = [
+            'action' => 'set',
+            'type' => 'character',
+            'data' => [
+                'character' => '千反田愛瑠',
+                'character_jp' => '千反田える',
+                'title' => '冰菓',
+                'seiyuu' => '佐藤聰美',
             ]
         ];
         return json_encode($param);
