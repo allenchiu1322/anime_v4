@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AnimeController@index')->name('index');
+Route::get('/title', 'AnimeController@title')->name('anime.title');
+Route::get('/seiyuu', 'AnimeController@seiyuu')->name('anime.seiyuu');
+Route::get('/character', 'AnimeController@character')->name('anime.character');
+Route::get('/maintain', 'AnimeController@maintain')->name('anime.maintain');
